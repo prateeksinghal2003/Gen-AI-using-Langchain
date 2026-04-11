@@ -1,2 +1,4 @@
 simple
 sequential
+parallel
+conditional 
