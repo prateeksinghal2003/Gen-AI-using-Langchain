@@ -1,0 +1,26 @@
+Step 1: Create venv WITHOUT pip
+python -m venv venv --without-pip
+
+Step 2: Activate venv
+venv\Scripts\activate
+
+Step 3: Install pip manually
+python -m ensurepip --upgrade
+
+Step 4: Upgrade pip (important)
+python -m pip install --upgrade pip
+
+Step 5: pip install -r requirements.txt
+
+
+
+------------------------order of working of files
+without_str_output_parser
+
+str_output_parser
+
+json parser
+
+structured parser
+
+pydantic parser

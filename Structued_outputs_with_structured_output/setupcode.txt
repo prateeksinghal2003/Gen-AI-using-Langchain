@@ -1,0 +1,27 @@
+Step 1: Create venv WITHOUT pip
+python -m venv venv --without-pip
+
+Step 2: Activate venv
+venv\Scripts\activate
+
+Step 3: Install pip manually
+python -m ensurepip --upgrade
+
+Step 4: Upgrade pip (important)
+python -m pip install --upgrade pip
+
+Step 5: pip install -r requirements.txt
+
+
+
+------------------------order of working of files
+typedict.py
+with_structued_output_typedict
+
+pydantic.py
+with_structued_output_pydantic
+
+JSON Schema = rules that define how JSON data should look
+json_schema
+
+with_structured_output_json
