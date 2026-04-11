@@ -11,13 +11,3 @@ Step 4: Upgrade pip (important)
 python -m pip install --upgrade pip
 
 Step 5: pip install -r requirements.txt
-
-
-
-order of working of files
-prompt_ui
-prompt_generator
-template.json
-chatbot.py
-messages.py
-chat_prompt_template

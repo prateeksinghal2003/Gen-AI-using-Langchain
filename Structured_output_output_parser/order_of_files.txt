@@ -1,0 +1,13 @@
+
+
+
+------------------------order of working of files
+without_str_output_parser
+
+str_output_parser
+
+json parser
+
+structured parser
+
+pydantic parser
