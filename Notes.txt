@@ -1,0 +1,99 @@
+.format() is a default built-in method in Python, not something you created.
+
+🔹 What is .format()?
+
+It is a string method used to replace placeholders {} in a string.
+
+🔹 Example:
+text = "Hello {name}"
+result = text.format(name="Prateek")
+
+print(result)
+
+✅ Output:
+
+Hello Prateek
+🔹 In your case:
+self.template.format(**input_dict)
+
+self.template → string
+
+"Write a {length} poem about {topic}"
+
+input_dict →
+
+{'length': 'short', 'topic': 'india'}
+
+**input_dict → converts to:
+
+length='short', topic='india'
+
+Then Python internally does:
+
+"Write a {length} poem about {topic}".format(length='short', topic='india')
+
+
+-----------------------------------------------------
+class NakliPromptTemplate:
+
+    def __init__(self, template, input_variables):
+        self.template = template
+        self.input_variables = input_variables
+
+    def format(self, input_dict):
+        return self.template.format(**input_dict)
+
+
+template = NakliPromptTemplate(
+    template='Write a {length} poem about {topic}',
+    input_variables=['length', 'topic']
+)
+
+output = template.format({'length': 'short', 'topic': 'india'})
+print(output)
+
+
+
+Flow Explanation (simple):
+
+Class Creation
+You created a custom class NakliPromptTemplate (like LangChain's PromptTemplate).
+It stores:
+template → string with placeholders
+input_variables → list of variables
+
+
+Object Creation
+template = NakliPromptTemplate(
+    template='Write a {length} poem about {topic}',
+    input_variables=['length', 'topic']
+)
+Now:
+self.template = 'Write a {length} poem about {topic}'
+self.input_variables = ['length', 'topic']
+
+
+Calling .format()
+template.format({'length':'short','topic':'india'})
+input_dict = {'length':'short','topic':'india'}
+
+
+Inside format()
+return self.template.format(**input_dict)
+
+**input_dict → converts dictionary into:
+
+length='short', topic='india'
+String Replacement
+'Write a {length} poem about {topic}'
+
+replaces:
+
+{length} → short
+{topic} → india
+Final Result:
+
+Write a short poem about india
+
+Key Concept:
+(double star) → unpacks dictionary into keyword arguments
