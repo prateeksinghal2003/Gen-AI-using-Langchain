@@ -49,10 +49,17 @@ loader=DirectoryLoader(
 #  Reads .txt from all nested folders
 
 
-docs=loader.load()
-print(len(docs))
+# docs=loader.load()
+docs=loader.lazy_load()
+# print(len(docs))
 
-print(docs[2].page_content)
+# print(docs[2].page_content)
 
+
+for document in docs :
+    print(document.metadata)
+
+
+   
 
 
